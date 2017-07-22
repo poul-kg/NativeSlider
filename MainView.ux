@@ -1,0 +1,15 @@
+<App>
+    <Native.MySlider ux:Class="NativeSlider">
+        <Native.iOS.MySlider ux:Template="iOSAppearance" Host="this" />
+        <Text ux:Template="GraphicsAppearance">
+            MySlider is not available in this context.fff
+        </Text>
+    </Native.MySlider>
+    <ClientPanel>
+        <StackPanel>
+            <NativeViewHost>
+                <NativeSlider />
+            </NativeViewHost>
+        </StackPanel>
+    </ClientPanel>
+</App>
