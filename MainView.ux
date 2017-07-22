@@ -7,7 +7,7 @@
     </Native.MySlider>
     <ClientPanel>
         <StackPanel>
-            <NativeViewHost>
+            <NativeViewHost Height="200" Width="200">
                 <NativeSlider />
             </NativeViewHost>
         </StackPanel>

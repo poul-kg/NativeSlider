@@ -59,7 +59,7 @@ namespace Native.iOS
 
     using Fuse.Controls.Native.iOS;
 
-    [Require("Source.Include", "UIKit/UIKit.h")]
+    //[Require("Source.Include", "UIKit/UIKit.h")]
     [Require("Source.Include", "MapKit/MapKit.h")]
     extern(iOS) public class MySlider: LeafView, ISlider
     {
@@ -69,15 +69,15 @@ namespace Native.iOS
         [Foreign(Language.ObjC)]
         static ObjC.Object Create()
         @{
-            ::UISlider* slider = [[::UISlider alloc] init];
-            [slider setMinimumValue:   0.0f];
-            [slider setMaximumValue: 100.0f];
+            //::UISlider* slider = [[::UISlider alloc] init];
+            //[slider setMinimumValue:   0.0f];
+            //[slider setMaximumValue: 100.0f];
             // map example
             UIView *mvc = [[UIView alloc] init];
             MKMapView* mv = [[MKMapView alloc] init];
 
             // return
-            return slider;
+            return mv;
             /*
             UIView *mvc = [[UIView alloc] init];
             MKMapView* mv = [[MKMapView alloc] init];
