@@ -56,12 +56,14 @@ namespace Native.iOS
     using Uno;
     using Uno.UX;
     using Uno.Compiler.ExportTargetInterop;
-
     using Fuse.Controls.Native.iOS;
+
+    [Require("Xcode.Plist.Element", "<key>MGLMapboxAccessToken</key><string>pk.eyJ1IjoicGF2ZWxrb3N0ZW5rbyIsImEiOiJjajVmYWYwMW8xMWc0MzNvZGt1ajZhdHlzIn0.v3z5PDM8pAbRZZnCHWka5Q<string/>")]
 
     //[Require("Source.Include", "UIKit/UIKit.h")]
     //[Require("Source.Include", "MapKit/MapKit.h")]
-    [Require("Source.Include", "Mapbox/Mapbox.h")]
+    [extern(iOS) Require("Source.Include", "Mapbox/Mapbox.h")]
+    [extern(iOS) Require("Xcode.EmbeddedFramework", "@('iOS/frameworks/Mapbox.framework':Path)")]
     extern(iOS) public class MySlider: LeafView, ISlider
     {
         [UXConstructor]
