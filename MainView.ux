@@ -7,7 +7,11 @@
     </Native.MySlider>
     <ClientPanel>
         <StackPanel>
-            <NativeViewHost Height="200" Width="200">
+            <NativeViewHost Height="300">
+                <Rectangle Layer="Background">
+                    <SolidColor Color="#ff0000" />
+                    <Stroke Color="#ff0000" Width="2" />
+                </Rectangle>
                 <NativeSlider />
             </NativeViewHost>
         </StackPanel>

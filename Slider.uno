@@ -60,7 +60,8 @@ namespace Native.iOS
     using Fuse.Controls.Native.iOS;
 
     //[Require("Source.Include", "UIKit/UIKit.h")]
-    [Require("Source.Include", "MapKit/MapKit.h")]
+    //[Require("Source.Include", "MapKit/MapKit.h")]
+    [Require("Source.Include", "Mapbox/Mapbox.h")]
     extern(iOS) public class MySlider: LeafView, ISlider
     {
         [UXConstructor]
@@ -69,15 +70,21 @@ namespace Native.iOS
         [Foreign(Language.ObjC)]
         static ObjC.Object Create()
         @{
+            // Slider OK
+            //
             //::UISlider* slider = [[::UISlider alloc] init];
             //[slider setMinimumValue:   0.0f];
             //[slider setMaximumValue: 100.0f];
             // map example
-            UIView *mvc = [[UIView alloc] init];
-            MKMapView* mv = [[MKMapView alloc] init];
+            //UIView *mvc = [[UIView alloc] init];
+            //MKMapView* mv = [[MKMapView alloc] init];
 
             // return
-            return mv;
+            //return mv;
+            
+            //
+            // MapKit
+            //
             /*
             UIView *mvc = [[UIView alloc] init];
             MKMapView* mv = [[MKMapView alloc] init];
@@ -88,6 +95,16 @@ namespace Native.iOS
             [mvc addSubview:mv];
             return mvc;
             */
+            UIView *mvc = [[UIView alloc] init];
+            NSURL *url = [NSURL URLWithString:@"mapbox://styles/mapbox/streets-v10"];
+            CGRect rect = CGRectMake(0, 0, 100, 100);
+            MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:rect];
+            mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            [mapView setCenterCoordinate:CLLocationCoordinate2DMake(59.31, 18.06)
+                               zoomLevel:9
+                                animated:NO];
+            [mvc addSubview:mapView];
+            return mvc;
         @}
 
         public float Value
